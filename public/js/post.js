@@ -26,10 +26,11 @@ $(document).ready(function() {
     if (!titleInput.val().trim() || !bodyInput.val().trim()) {
       return;
     }
+
     // Constructing a newPost object to hand to the database
     var newPost = {
       title: titleInput.val().trim(),
-      body: bodyInput.val().trim(),
+      body: bodyInput.val().trim()
     };
 
     console.log(newPost);
@@ -47,9 +48,21 @@ $(document).ready(function() {
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(Post) {
-    $.post("/api/posts/", Post, function() {
-      window.location.href = "/blog";
-    });
+
+    $.ajax("/posts/insertOne", {
+        type: "POST",
+        data: Post
+      }).then(
+        function() {
+          // Reload the page to get the updated list
+          console.log("submitted succesfully")
+          window.location.href = "/discussion";
+        })
+      
+    // $.post("/api/posts/", Post, function() {
+    //     console.log("submitted succesfully")
+    //   window.location.href = "/discussion";
+    // });
   }
 
   // Gets post data for a post if we're editing
