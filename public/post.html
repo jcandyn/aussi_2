@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <title>Create Post</title>
+</head>
+<body>
+<div class="container">
+        <div class="row">
+          <div class="row">
+            <div class="col-sm-2 mt-4">
+              <a id="goHome" class="btn btn-light" href="/">Go Home</a>
+            </div>
+          </div>
+          <div class="col-md-5 offset-md-3">
+            <form id="post">
+              <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title">
+                <br />
+                <label for="body">Body:</label>
+                <textarea class="form-control" rows="10" id="body"></textarea>
+                <div class="form-group">
+                </div>
+                <br />
+                <button type="submit" value="Submit" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Create Post"><span>Create Post</span></button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
