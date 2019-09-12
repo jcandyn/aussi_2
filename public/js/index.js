@@ -6,3 +6,5 @@ $("#searchEmotion").on("click", function() {
     console.log(emotion)
     alert(emotion)
 })
+
+
