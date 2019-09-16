@@ -7,6 +7,7 @@ var word = require('../models/words.js');
 var path = require("path");
 var post = require('../models/posts.js')
 
+
 router.get("/", function(req, res) {
   // res.sendFile( path.resolve( __dirname, '..', 'my-app/public/index.html'))
   res.sendFile(path.join(__dirname, "../public/index.html"));
@@ -51,13 +52,18 @@ router.get("/aussi", function(req, res) {
     });
   });
 
-router.get('/api/aussi', function (req, res) {
-
-  word.findAlike(function (data) {
-    var hbsObject = { words: data };
+router.post('/api/aussi', function (req, res) {
+  word.findAlike({feeling: req.body.feeling},function(data) {
+    var hbsObject = { 
+      words: data 
+    };
     res.json(hbsObject);
+    console.log(hbsObject.words)
   });
 });
+
+
+
 
 router.post('/posts/insertOne', function (req, res) {
   post.insertOne(['title', 'body'], [req.body.title, req.body.body], function () {

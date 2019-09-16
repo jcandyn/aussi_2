@@ -1,4 +1,5 @@
-var connection = require("./connection.js");
+
+var connection = require("./connection");
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -8,6 +9,7 @@ function printQuestionMarks(num) {
 
   return arr.toString();
 }
+
 
 // Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
@@ -25,6 +27,9 @@ function objToSql(ob) {
   }
   return arr.toString();
 }
+
+// feeling = "attractive"
+
 
 var orm = {
     
@@ -90,10 +95,25 @@ var orm = {
     });
   },
 
-  findAlike: function(table, callback) {
-    var queryString = 'SELECT * FROM ' + table;
-    queryString = queryString + ' WHERE ';
-    queryString = queryString + 'definition LIKE "%attractive%"';
+  // findAlike: function(table, callback) {
+  //   var queryString = 'SELECT * FROM ' + table;
+  //   queryString = queryString + ' WHERE ';
+  //   queryString = queryString + 'definition LIKE "%attractive%"';
+  //   console.log(queryString);
+  //   connection.query(queryString, function (err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+
+  //     callback(result);
+  //   });
+  // }
+
+  
+
+    findAlike: function(feeling,callback) {
+      console.log(feeling.feeling)
+    var queryString = 'SELECT * FROM words WHERE definition LIKE' + '"%' + feeling.feeling + '%"';
     console.log(queryString);
     connection.query(queryString, function (err, result) {
       if (err) {

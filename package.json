@@ -20,5 +20,10 @@
   "homepage": "https://github.com/jcandyn/Project2#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0"
   }
 }

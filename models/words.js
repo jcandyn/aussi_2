@@ -1,8 +1,6 @@
 
 var orm = require('../config/orm.js');
 
-
-
 var table = "words";
 var word = {
   selectAll: function (callback) {
@@ -26,8 +24,8 @@ var word = {
       callback(res);
     });
   },
-  findAlike: function (table,callback) {
-    orm.findAlike(table,callback, function(res) {
+  findAlike: function (feeling,callback) {
+    orm.findAlike(feeling,callback, function(res) {
       callback(res)
     })
   }

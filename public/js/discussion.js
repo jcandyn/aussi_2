@@ -2,30 +2,26 @@ $(document).ready(function() {
     /* global moment */
     // blogContainer holds all of our posts
     var blogContainer = $(".blog-container");
+    var postCategorySelect = $("#category");
     // Click events for the edit and delete buttons
-    // $(document).on("click", "button.delete", handlePostDelete);
-    // $(document).on("click", "button.edit", handlePostEdit);
-    // postCategorySelect.on("change", handleCategoryChange);
+    $(document).on("click", "button.delete", handlePostDelete);
+    $(document).on("click", "button.edit", handlePostEdit);
+    postCategorySelect.on("change", handleCategoryChange);
     var posts;
-
-    getPosts();
   
     // This function grabs posts from the database and updates the view
-    function getPosts() {
-    //   var categoryString = category || "";
-    //   if (categoryString) {
-    //     categoryString = "/category/" + categoryString;
-    //   }
-      $.get("/api/posts", function(data) {
-        console.log("posts", data);
+    function getPosts(category) {
+      var categoryString = category || "";
+      $.get("/api/posts" + categoryString, function(data) {
+        console.log("Posts", data);
         posts = data;
-        // if (!posts || !posts.length) {
-        //   displayEmpty();
-        // }
-        // else {
-        //   initializeRows();
-        // }
-        initializeRows()
+        if (!posts || !posts.length) {
+          displayEmpty();
+        }
+        else if (posts) {
+         
+          initializeRows();
+        }
       });
     }
   
@@ -41,14 +37,15 @@ $(document).ready(function() {
     }
   
     // Getting the initial list of posts
-   
+    getPosts();
     // InitializeRows handles appending all of our constructed post HTML inside
     // blogContainer
     function initializeRows() {
       blogContainer.empty();
       var postsToAdd = [];
-      for (let i = 0; i < 10; i++) {
+      for (var i = 0; i < posts.length; i++) {
         postsToAdd.push(createNewRow(posts[i]));
+       
       }
       blogContainer.append(postsToAdd);
     }
@@ -66,28 +63,28 @@ $(document).ready(function() {
       editBtn.text("EDIT");
       editBtn.addClass("edit btn btn-default");
       var newPostTitle = $("<h2>");
-    //   var newPostDate = $("<small>");
-    //   var newPostCategory = $("<h5>");
-    //   newPostCategory.text(post.category);
-    //   newPostCategory.css({
-    //     float: "right",
-    //     "font-weight": "700",
-    //     "margin-top":
-    //     "-15px"
-    //   });
+      var newPostDate = $("<small>");
+      var newPostCategory = $("<h5>");
+      newPostCategory.text(post.category);
+      newPostCategory.css({
+        float: "right",
+        "font-weight": "700",
+        "margin-top":
+        "-15px"
+      });
       var newPostCardBody = $("<div>");
       newPostCardBody.addClass("card-body");
       var newPostBody = $("<p>");
       newPostTitle.text(post.title + " ");
       newPostBody.text(post.body);
-    //   var formattedDate = new Date(post.createdAt);
-    //   formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    //   newPostDate.text(formattedDate);
-    //   newPostTitle.append(newPostDate);
+      var formattedDate = new Date(post.createdAt);
+      formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+      newPostDate.text(formattedDate);
+      newPostTitle.append(newPostDate);
       newPostCardHeading.append(deleteBtn);
       newPostCardHeading.append(editBtn);
       newPostCardHeading.append(newPostTitle);
-    //   newPostCardHeading.append(newPostCategory);
+      newPostCardHeading.append(newPostCategory);
       newPostCardBody.append(newPostBody);
       newPostCard.append(newPostCardHeading);
       newPostCard.append(newPostCardBody);
@@ -112,7 +109,7 @@ $(document).ready(function() {
         .parent()
         .parent()
         .data("post");
-      window.location.href = "/post?post_id=" + currentPost.id;
+      window.location.href = "/cms?post_id=" + currentPost.id;
     }
   
     // This function displays a message when there are no posts
@@ -120,7 +117,7 @@ $(document).ready(function() {
       blogContainer.empty();
       var messageH2 = $("<h2>");
       messageH2.css({ "text-align": "center", "margin-top": "50px" });
-      messageH2.html("No posts yet for this category, navigate <a href='/post'>here</a> in order to create a new post.");
+      messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
       blogContainer.append(messageH2);
     }
   

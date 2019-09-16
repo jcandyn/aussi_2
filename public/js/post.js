@@ -72,13 +72,14 @@ $(document).ready(function() {
         // If this post exists, prefill our cms forms with its data
         titleInput.val(data.title);
         bodyInput.val(data.body);
-        postCategorySelect.val(data.category);
         // If we have a post with this id, set a flag for us to know to update the post
         // when we hit submit
         updating = true;
       }
     });
   }
+
+  
 
   // Update a given post, bring user to the blog page when done
   function updatePost(post) {
