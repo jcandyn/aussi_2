@@ -85,7 +85,7 @@ h1{margin:0px; padding:0px; font-family: 'Roboto', sans-serif;transition:all .5s
     margin-bottom: 20px;
   }
   .header-cta {
-    display: inline-block;
+    /* display: inline-block;
     text-decoration: none;
     height: 60px;
     line-height: 60px;
@@ -94,14 +94,13 @@ h1{margin:0px; padding:0px; font-family: 'Roboto', sans-serif;transition:all .5s
     margin-top: 20px;
     text-align: center;
     font-size: 1.1em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #FFF;
-    border: 2px solid #FFF;
-    transition: background-color .2s ease, color .2s ease;
+/*  */
+font-size: 0.8em;
+text-align: center;
+display: inline-block;
+margin-top: 20px;
+padding: 0 15px;
   }
-  .header-cta:hover {
-    background-color: #fff;
-    color: #000;
-  }
-  
+
+ 
+ 
