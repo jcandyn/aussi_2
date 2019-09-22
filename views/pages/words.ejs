@@ -1,0 +1,24 @@
+
+
+<head>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css/words.css">
+</head>
+ <% include ../partials/navbar %>
+
+
+
+<!-- Search Emotion Container -->
+<div class="container">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tell us how you feel</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex. I am sad because..."/>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small>
+          
+           <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+          <button id="searchEmotion" type="submit" value="Submit" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Search Emotion"><span>Search Emotion</span></button>
+          </div>
+        </form>
+        </div>
+        <div id="matches" class="container"></div>

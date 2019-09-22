@@ -8,26 +8,6 @@ var path = require("path");
 var post = require('../models/posts.js')
 
 
-router.get("/", function(req, res) {
-  // res.sendFile( path.resolve( __dirname, '..', 'my-app/public/index.html'))
-  res.sendFile(path.join(__dirname, "../public/index.html"));
-
-});
-
- // Route to the create post page
- router.get("/post", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/post.html"));
-});
-
-// route loads matching.html
-router.get("/matching", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/matching.html"));
-});
-
-//   route loads discussion.html
-router.get("/discussion", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/discussion.html"));
-});
 
 // router.get("/test", function(req, res) {
 //   res.json("test");

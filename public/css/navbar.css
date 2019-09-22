@@ -1,0 +1,221 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+  
+  body {
+    font: 1rem/1.5 "Heebo", sans-serif;
+    background-color: #fff;
+  }
+  
+  ol,
+  ul {
+    list-style: none;
+  }
+  
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  td,
+  th {
+    padding: 0;
+    text-align: left;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: 300;
+    max-width: 700px;
+  }
+  
+  p {
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  a {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .container {
+    width: 84%;
+    max-width: 1440px;
+    margin: auto;
+  }
+  
+  .sr-visible {
+    border: 0;
+    clip: rect(1px 1px 1px 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .sr-visible.sr-focusable:focus, .sr-visible.sr-focusable:active {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+  
+  .navbar {
+    position: static;
+    min-height: 70px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  .navbar a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+  }
+  .navbar a:hover {
+    color: #066d49;
+  }
+  .navbar .icon-open {
+    display: inline-block;
+  }
+  .navbar .icon-close {
+    display: none;
+  }
+  .navbar__title, .navbar__button {
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    width: 48%;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    z-index: 1000;
+  }
+  .navbar__button {
+    display: none;
+    text-align: right;
+  }
+  .navbar__button button {
+    cursor: pointer;
+    height: 3rem;
+    width: 3rem;
+    background-color: transparent;
+    border: none;
+    font-size: 1.75rem;
+  }
+  .navbar__menu {
+    display: block;
+    width: 100%;
+  }
+  .navbar__menu li {
+    margin: 0 0 1.5rem;
+  }
+  @media (min-width: 768px) {
+    .navbar a {
+      font-size: 1.0rem;
+    }
+    .navbar__button {
+      display: none;
+    }
+    .navbar__title {
+      width: 25%;
+    }
+    .navbar__menu {
+      width: 75%;
+      padding: 0;
+      position: static;
+      -webkit-transform: translate(0);
+              transform: translate(0);
+      opacity: 1;
+      z-index: 0;
+      display: inline-block;
+      text-align: right;
+    }
+    .navbar__menu li {
+      display: inline-block;
+      margin: 0 0 0 3rem;
+      text-align: right;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .js .navbar__button {
+      display: inline-block;
+    }
+    .js .navbar__menu {
+      padding: 70px 8% 20%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      -webkit-transform: translateY(1%);
+              transform: translateY(1%);
+      opacity: 0;
+      -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+      z-index: -999;
+      transition: all 350ms ease-in-out 50ms;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .js-show-menu a,
+    .js-show-menu button {
+      color: white;
+    }
+    .js-show-menu .icon-open {
+      display: none;
+    }
+    .js-show-menu .icon-close {
+      display: inline-block;
+    }
+    .js-show-menu .navbar__menu {
+      background-color: rgba(0, 0, 0, 0.95);
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      opacity: 1;
+      z-index: 999;
+    }
+    .js-show-menu .navbar__menu a {
+      width: 100%;
+      height: 3rem;
+      line-height: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+  
+  #maincontent {
+    padding: 1.5rem 0;
+    height: 100vh;
+  }
+  

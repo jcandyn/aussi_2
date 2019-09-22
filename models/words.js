@@ -1,34 +1,30 @@
 
-var orm = require('../config/orm.js');
+module.exports = function (sequelize, Datatypes) {
+  var Word = sequelize.define("Word", {
+      id: {
+          type: Datatypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+      },
+      word: {
+          type: Datatypes.STRING,
+          allowNull: false,
+          unique: true,
+          validate: {
+              len: [1, 75],
+              notContains: [
+                  "fuck", "shit", "bitch", "ass", "phuk", "fuk", "sheit", "sheeeit", "shat", "schit", "shitt", "biiiiitch", "betch", "bich"
+              ]
+          }
+      },
+      definition: {
+          type: Datatypes.TEXT,
+          allowNull: false,
+          validate: {
+              len: [1]
+          }
+      }
+  });
 
-var table = "words";
-var word = {
-  selectAll: function (callback) {
-    orm.selectAll(table, function (res) {
-      callback(res);
-    });
-  },
-  // cols and vals are arrays
-  insertOne: function (cols, vals, callback) {
-    orm.insertOne(table, cols, vals, function (res) {
-      callback(res);
-    });
-  },
-  updateOne: function (objColVals, condition, callback) {
-    orm.updateOne(table, objColVals, condition, function (res) {
-      callback(res);
-    });
-  },
-  delete: function (condition, callback) {
-    orm.delete(table, condition, function (res) {
-      callback(res);
-    });
-  },
-  findAlike: function (feeling,callback) {
-    orm.findAlike(feeling,callback, function(res) {
-      callback(res)
-    })
-  }
+  return Word;
 };
-
-module.exports = word;

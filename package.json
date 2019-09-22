@@ -19,7 +19,14 @@
   },
   "homepage": "https://github.com/jcandyn/Project2#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mysql2": "^1.7.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.19.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
