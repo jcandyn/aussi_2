@@ -73,8 +73,8 @@ $(document).ready(function() {
                newRow += '</div>';
                newRow += '</div>';
                newRow += '<div class="card__content">';
-               newRow += '<div class="card__title">Nam libero dl tempore.</div>';
-               newRow += ' <div class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur autem.</div>';
+               newRow += '<div class="card__title">' + wordMatch + '</div>';
+               newRow += ' <div class="card__description">' + definition + '</div>';
                newRow += ' <a href="#!" class="card__btn">Visit website</a>';
                newRow += '</div>';
                newRow += '</div>';
