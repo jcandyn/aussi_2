@@ -84,7 +84,7 @@ $(document).ready(function() {
                newRow += '<div class="card__content">';
                newRow += '<div class="card__title">' + x.word + '</div>';
                newRow += ' <div class="card__description">' + x.definition + '</div>';
-               newRow += '<a href="#!" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s card__btn" data-text="Discover More!"><span>Discover More!</span></a>';
+               newRow += '<button type="submit" value="Submit" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Discover More"><span>Discover More</span></button>';
                newRow += '</div>';
                newRow += '</div>';
 
