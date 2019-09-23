@@ -1,5 +1,7 @@
 var db = require("../models");
 var passport = require("../config/passport");
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
 
 // Routes
 // =============================================================
@@ -61,7 +63,22 @@ module.exports = function (app) {
         }
     });
 
+
+   
     // 
+    app.get("/api/words", function (req,res) {
+        db.Word.findAll({
+            where: {
+                definition: {
+                    [Op.like]: '%random%'
+                }
+            }
+        }).then(data => {
+           console.log(data)
+           res.json(data)
+          })
+        }
+    )
 
     app.get("/api/events", function (req, res) {
         var query = {};
