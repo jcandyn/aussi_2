@@ -82,6 +82,7 @@ module.exports = function (app) {
 
     app.post("/api/aussi", function (req,res) {
         console.log("wreck that body",req.body.emotion)
+        if (req.body.emotion) 
         db.Word.findAll({
             where: {
                 definition: {

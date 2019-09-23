@@ -48,20 +48,20 @@
     color: rgba(8, 19, 46, 0.65);
   }
   .card__btn {
-    display: table;
-    padding: 0.75em 1.75em;
-    background: #08132E;
-    color: white;
-    border-radius: 3em;
-    margin: 0 auto;
-    text-decoration: none;
-    box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.75);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* display: table; */
+    /* padding: 0.75em 1.75em; */
+    /* background: #08132E; */
+    /* color: white; */
+    /* border-radius: 3em; */
+    /* margin: 0 auto; */
+    /* text-decoration: none; */
+    /* box-shadow: 0px 7px 15px -5px rgba(0, 0, 0, 0.75); */
+    /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
   }
   .card__btn:hover {
-    box-shadow: 0px 10px 25px -10px rgba(0, 0, 0, 0.5);
+    /* box-shadow: 0px 10px 25px -10px rgba(0, 0, 0, 0.5);
     -webkit-transform: translateY(-2px);
-            transform: translateY(-2px);
+            transform: translateY(-2px); */
   }
   
   .ishadow img {

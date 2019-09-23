@@ -1,6 +1,5 @@
 $(document).ready(function() {
       let words;
-      let wordMatch;
 
 
 // $.get("/api/words", function (data) {
@@ -10,7 +9,6 @@ $(document).ready(function() {
 //   });
 
     let emotion;
-    let word;
     let definition;
     
     // request to get all words in database
@@ -23,13 +21,14 @@ $(document).ready(function() {
     
         $("#searchEmotion").on("click", function() {
             event.preventDefault()
+            $('#matches').empty()
           
             emotion = $("input").val().trim()
             console.log(emotion)
             var user_emotion = {
                 emotion: emotion
             }
-        
+       
             checkWord(user_emotion);
             getMatch()
           })
@@ -37,17 +36,27 @@ $(document).ready(function() {
            
             function checkWord(user_emotion) {
                 $.post("/api/aussi", user_emotion).then(function(data) {
-                  wordMatch = (data.words[0].word)
-                  definition = (data.words[0].definition)
+                //   wordMatch = (data.words[0].word)
+                //   definition = (data.words[0].definition)
+                  words = data.words
                   console.log(data)
                 //   console.log(wordMatch)
                 //   console.log(definition)
-                  displayMatches()
+                populateWords(words)
+                //   displayMatches()
                   // If there's an error, log the error
                 }).catch(function(err) {
                 //   console.log(err);
                 });
               }
+
+              function populateWords(data) {
+                var wordData = data;
+                for (let i = 0; i < wordData.length; i++) {
+                  let newCardData = wordData[i]
+                  displayMatches(newCardData)
+                };
+            };
               function getMatch() {
               $.get("/api/aussi", function(data){
                 console.log(data)
@@ -65,7 +74,7 @@ $(document).ready(function() {
              
     
             function displayMatches(x) {
-                $('#matches').empty()
+                
                 var newRow =  '<div class="card">';
                 newRow += '<div class="card__img">';
                 newRow += '<div class="ishadow">';
@@ -73,15 +82,15 @@ $(document).ready(function() {
                newRow += '</div>';
                newRow += '</div>';
                newRow += '<div class="card__content">';
-               newRow += '<div class="card__title">' + wordMatch + '</div>';
-               newRow += ' <div class="card__description">' + definition + '</div>';
-               newRow += ' <a href="#!" class="card__btn">Visit website</a>';
+               newRow += '<div class="card__title">' + x.word + '</div>';
+               newRow += ' <div class="card__description">' + x.definition + '</div>';
+               newRow += '<a href="#!" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s card__btn" data-text="Discover More!"><span>Discover More!</span></a>';
                newRow += '</div>';
                newRow += '</div>';
 
             //   const newRow = $('<div>').addClass("row")
-              const h1 = $('<h4>').text(wordMatch).addClass("row")
-              const p = $('<p>').text(definition)
+              // const h1 = $('<h4>').text(wordMatch).addClass("row")
+              // const p = $('<p>').text(definition)
               $("#matches").append(newRow)
             //   $(newRow).append(h1)
             //   $(newRow).append(p)
