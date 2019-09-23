@@ -64,14 +64,27 @@ $(document).ready(function() {
 
              
     
-            function displayMatches() {
+            function displayMatches(x) {
                 $('#matches').empty()
-              const newRow = $('<div>').addClass("row")
+                var newRow =  '<div class="card">';
+                newRow += '<div class="card__img">';
+                newRow += '<div class="ishadow">';
+               newRow += '<img data-blur="20" data-hover="true" src="https://images.unsplash.com/flagged/photo-1565635278159-ed40dc1cf362?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">';
+               newRow += '</div>';
+               newRow += '</div>';
+               newRow += '<div class="card__content">';
+               newRow += '<div class="card__title">Nam libero dl tempore.</div>';
+               newRow += ' <div class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur autem.</div>';
+               newRow += ' <a href="#!" class="card__btn">Visit website</a>';
+               newRow += '</div>';
+               newRow += '</div>';
+
+            //   const newRow = $('<div>').addClass("row")
               const h1 = $('<h4>').text(wordMatch).addClass("row")
               const p = $('<p>').text(definition)
               $("#matches").append(newRow)
-              $(newRow).append(h1)
-              $(newRow).append(p)
+            //   $(newRow).append(h1)
+            //   $(newRow).append(p)
             }
           });
         
@@ -81,3 +94,7 @@ $(document).ready(function() {
         //   window.addEventListener('scroll', e => {
         //     headerContent.style.top = `${50 + (window.pageYOffset / 16)}%`
         //   });
+
+
+
+        // '<div class="card main"><img src="https://ak8.picdn.net/shutterstock/videos/3635288/thumb/1.jpg" class="card-img-top" alt="#"><div class="card-body"><h5 class="card-title event-title">' + wordMatch + '</h5><br><p class="card-text event-desc">'+definition+'</p><br><p class="card-text event-deets"><p class="card-text event-deets">Location: '+x.location+'</p>Category: '+x.category+'</p><p class="card-text event-deets">Created by: '+x.User.name+'</p><p class="card-text event-deets">Date: '+x.date+'</p><p class="card-text event-deets">Time: '+x.time+'</p></div></div>';
