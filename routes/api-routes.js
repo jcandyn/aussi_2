@@ -80,6 +80,22 @@ module.exports = function (app) {
         }
     )
 
+    app.post("/api/aussi", function (req,res) {
+        console.log("wreck that body",req.body.emotion)
+        db.Word.findAll({
+            where: {
+                definition: {
+                    [Op.like]: "%" + req.body.emotion +  "%"
+                }
+            }
+        }).then(function(data) {
+            var response = { words: data };
+            console.log(response)
+            res.json(response);
+          });
+        }
+    )
+
     app.get("/api/events", function (req, res) {
         var query = {};
 
