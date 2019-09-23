@@ -42,6 +42,14 @@ module.exports = function(app) {
           res.render(path.join(__dirname, "../views/pages/signup.ejs"));
         });
 
+        app.get("/chat", function(req, res) {
+          res.render(path.join(__dirname, "../views/pages/chat.ejs"));
+        });
+
+        app.get("/contact", function(req, res) {
+          res.render(path.join(__dirname, "../views/pages/contact.ejs"));
+        });
+
         // app.get("/createEvent", function(req, res) {
         //   res.render(path.join(__dirname, "../views/pages/createEvent.ejs"));
 

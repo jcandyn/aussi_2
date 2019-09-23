@@ -1,0 +1,41 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/contact.css">
+    <link rel="stylesheet" type="text/css" href="css/wordBtn.css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+
+        <% include ../partials/navbar %>
+
+<section class="get-in-touch">
+    <h1 class="title">Get in touch</h1>
+    <form class="contact-form row">
+       <div class="form-field col x-50">
+          <input id="name" class="input-text js-input" type="text" required>
+          <label class="label" for="name">Name</label>
+       </div>
+       <div class="form-field col x-50">
+          <input id="email" class="input-text js-input" type="email" required>
+          <label class="label" for="email">E-mail</label>
+       </div>
+       <div class="form-field col x-100">
+          <input id="message" class="input-text js-input" type="text" required>
+          <label class="label" for="message">Message</label>
+       </div>
+       <div class="form-field col x-100 align-center">
+          <!-- <input class="submit-btn" type="submit" value="Submit"> -->
+          <button id="contactBtn" type="submit" value="Submit" class="submit-btn button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Submit"><span>Submit</span></button>
+       </div>
+    </form>
+ </section>
+ <script src="js/contact.js">
+ </script>
+</body>
