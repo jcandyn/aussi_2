@@ -5,7 +5,7 @@ $(document).ready(function() {
         val = w.location.search.match(rx);
     return !val ? '':val[1];
 }
-
+let userId;
 var useId = urlParam('use_id');
 console.log(useId)
 
@@ -29,6 +29,7 @@ useId = useId.replace(/,/g, ' ')
   var categorySelect = $("#post-category");
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", handleFormSubmit);
+
   // Gets the part of the url that comes after the "?" (which we have if we're updating a post)
   var url = window.location.search;
   var postId;
@@ -47,7 +48,15 @@ useId = useId.replace(/,/g, ' ')
     authorId = url.split("=")[1];
   }
 
- 
+  $.get("/api/user_data").then(function(data) {
+
+    
+userId = data.user_identifier;
+
+    // membersData = data
+
+  });
+
 
   // A function for handling what happens when the form to create a new post is submitted
   function handleFormSubmit(event) {
@@ -58,6 +67,8 @@ useId = useId.replace(/,/g, ' ')
     }
     // Constructing a newPost object to hand to the database
     var newPost = {
+      UserId: userId,
+      word: useId,
       title: titleInput
         .val()
         .trim(),
