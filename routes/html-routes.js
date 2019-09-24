@@ -46,6 +46,10 @@ module.exports = function(app) {
           res.render(path.join(__dirname, "../views/pages/chat.ejs"));
         });
 
+        app.get("/discussion", function(req, res) {
+          res.render(path.join(__dirname, "../views/pages/discussion.ejs"));
+        });
+
         app.get("/contact", function(req, res) {
           res.render(path.join(__dirname, "../views/pages/contact.ejs"));
         });
@@ -57,8 +61,8 @@ module.exports = function(app) {
           res.render(path.join(__dirname, "../views/pages/create.ejs"));
         });
 
-        app.get("/all", function(req, res) {
-          res.render(path.join(__dirname, "../views/pages/all.ejs"));
+        app.get("/blog", function(req, res) {
+          res.render(path.join(__dirname, "../views/pages/blog.ejs"));
         });
 
         // app.get("/index", isAuthenticated, function(req, res) {

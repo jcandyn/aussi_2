@@ -1,95 +1,141 @@
 $(document).ready(function() {
-  // Gets an optional query string from our url (i.e. ?post_id=23)
-  var url = window.location.search;
-  var postId;
-  // Sets a flag for whether or not we're updating a post to be false initially
-  var updating = false;
+  /* global moment */
 
-  // If we have this section in our url, we pull out the post id from the url
-  // In localhost:8080/cms?post_id=1, postId is 1
-  if (url.indexOf("?post_id=") !== -1) {
-    postId = url.split("=")[1];
-    getPostData(postId);
-  }
-
-  // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#body");
-  var titleInput = $("#title");
-  var cmsForm = $("#cms");
+  // blogContainer holds all of our posts
+  var blogContainer = $(".blog-container");
   var postCategorySelect = $("#category");
-  // Giving the postCategorySelect a default value
-  postCategorySelect.val("Personal");
-  // Adding an event listener for when the form is submitted
-  $(cmsForm).on("submit", function handleFormSubmit(event) {
-    event.preventDefault();
-    // Wont submit the post if we are missing a body or a title
-    if (!titleInput.val().trim() || !bodyInput.val().trim()) {
-      return;
-    }
+  // Click events for the edit and delete buttons
+  $(document).on("click", "button.delete", handlePostDelete);
+  $(document).on("click", "button.edit", handlePostEdit);
+  // Variable to hold our posts
+  var posts;
 
-    // Constructing a newPost object to hand to the database
-    var newPost = {
-      title: titleInput.val().trim(),
-      body: bodyInput.val().trim()
-    };
-
-    console.log(newPost);
-
-    // If we're updating a post run updatePost to update a post
-    // Otherwise run submitPost to create a whole new post
-    if (updating) {
-      newPost.id = postId;
-      updatePost(newPost);
-    }
-    else {
-      submitPost(newPost);
-    }
-  });
-
-  // Submits a new post and brings user to blog page upon completion
-  function submitPost(Post) {
-
-    $.ajax("/posts/insertOne", {
-        type: "POST",
-        data: Post
-      }).then(
-        function() {
-          // Reload the page to get the updated list
-          console.log("submitted succesfully")
-          window.location.href = "/discussion";
-        })
-      
-    // $.post("/api/posts/", Post, function() {
-    //     console.log("submitted succesfully")
-    //   window.location.href = "/discussion";
-    // });
+  // The code below handles the case where we want to get blog posts for a specific author
+  // Looks for a query param in the url for author_id
+  var url = window.location.search;
+  var authorId;
+  if (url.indexOf("?author_id=") !== -1) {
+    authorId = url.split("=")[1];
+    getPosts(authorId);
+  }
+  // If there's no authorId we just get all posts as usual
+  else {
+    getPosts();
   }
 
-  // Gets post data for a post if we're editing
-  function getPostData(id) {
-    $.get("/api/posts/" + id, function(data) {
-      if (data) {
-        // If this post exists, prefill our cms forms with its data
-        titleInput.val(data.title);
-        bodyInput.val(data.body);
-        // If we have a post with this id, set a flag for us to know to update the post
-        // when we hit submit
-        updating = true;
+
+  // This function grabs posts from the database and updates the view
+  function getPosts(author) {
+    authorId = author || "";
+    if (authorId) {
+      authorId = "/?author_id=" + authorId;
+    }
+    $.get("/api/posts" + authorId, function(data) {
+      console.log("Posts", data);
+      posts = data;
+      if (!posts || !posts.length) {
+        displayEmpty(author);
+      }
+      else {
+        initializeRows();
       }
     });
   }
 
-  
-
-  // Update a given post, bring user to the blog page when done
-  function updatePost(post) {
+  // This function does an API call to delete posts
+  function deletePost(id) {
     $.ajax({
-      method: "PUT",
-      url: "/api/posts",
-      data: post
+      method: "DELETE",
+      url: "/api/posts/" + id
     })
       .then(function() {
-        window.location.href = "/blog";
+        getPosts(postCategorySelect.val());
       });
   }
+
+  // InitializeRows handles appending all of our constructed post HTML inside blogContainer
+  function initializeRows() {
+    blogContainer.empty();
+    var postsToAdd = [];
+    for (var i = 0; i < posts.length; i++) {
+      postsToAdd.push(createNewRow(posts[i]));
+    }
+    blogContainer.append(postsToAdd);
+  }
+
+  // This function constructs a post's HTML
+  function createNewRow(post) {
+    var formattedDate = new Date(post.createdAt);
+    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    var newPostCard = $("<div>");
+    newPostCard.addClass("card");
+    var newPostCardHeading = $("<div>");
+    newPostCardHeading.addClass("card-header");
+    var deleteBtn = $("<button>");
+    deleteBtn.text("x");
+    deleteBtn.addClass("delete btn btn-danger");
+    var editBtn = $("<button>");
+    editBtn.text("EDIT");
+    editBtn.addClass("edit btn btn-info");
+    var newPostTitle = $("<h2>");
+    var newPostDate = $("<small>");
+    var newPostAuthor = $("<h5>");
+    newPostAuthor.text("Written by: Author name display is in next activity when we learn joins!");
+    newPostAuthor.css({
+      float: "right",
+      color: "blue",
+      "margin-top":
+      "-10px"
+    });
+    var newPostCardBody = $("<div>");
+    newPostCardBody.addClass("card-body");
+    var newPostBody = $("<p>");
+    newPostTitle.text(post.title + " ");
+    newPostBody.text(post.body);
+    newPostDate.text(formattedDate);
+    newPostTitle.append(newPostDate);
+    newPostCardHeading.append(deleteBtn);
+    newPostCardHeading.append(editBtn);
+    newPostCardHeading.append(newPostTitle);
+    newPostCardHeading.append(newPostAuthor);
+    newPostCardBody.append(newPostBody);
+    newPostCard.append(newPostCardHeading);
+    newPostCard.append(newPostCardBody);
+    newPostCard.data("post", post);
+    return newPostCard;
+  }
+
+  // This function figures out which post we want to delete and then calls deletePost
+  function handlePostDelete() {
+    var currentPost = $(this)
+      .parent()
+      .parent()
+      .data("post");
+    deletePost(currentPost.id);
+  }
+
+  // This function figures out which post we want to edit and takes it to the appropriate url
+  function handlePostEdit() {
+    var currentPost = $(this)
+      .parent()
+      .parent()
+      .data("post");
+    window.location.href = "/cms?post_id=" + currentPost.id;
+  }
+
+  // This function displays a message when there are no posts
+  function displayEmpty(id) {
+    var query = window.location.search;
+    var partial = "";
+    if (id) {
+      partial = " for Author #" + id;
+    }
+    blogContainer.empty();
+    var messageH2 = $("<h2>");
+    messageH2.css({ "text-align": "center", "margin-top": "50px" });
+    messageH2.html("No posts yet" + partial + ", navigate <a href='/cms" + query +
+    "'>here</a> in order to get started.");
+    blogContainer.append(messageH2);
+  }
+
 });

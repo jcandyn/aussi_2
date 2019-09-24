@@ -1,5 +1,20 @@
+
+
 $(document).ready(function() {
-      let words;
+  let words;
+      let thisWord;
+  $(document).on('click', '#writeBtn', function() {
+   
+           
+      thisWord = $(this).attr("attr")
+      alert(thisWord)
+      
+      window.location.href = "/discussion"
+      console.log(thisWord)
+    })
+  
+  
+      
 
 
 // $.get("/api/words", function (data) {
@@ -31,7 +46,7 @@ $(document).ready(function() {
        
             checkWord(user_emotion);
             getMatch()
-          })
+            
             // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
            
             function checkWord(user_emotion) {
@@ -43,9 +58,11 @@ $(document).ready(function() {
                 //   console.log(wordMatch)
                 //   console.log(definition)
                 populateWords(words)
+             
                 //   displayMatches()
                   // If there's an error, log the error
                 }).catch(function(err) {
+                  
                 //   console.log(err);
                 });
               }
@@ -56,6 +73,7 @@ $(document).ready(function() {
                   let newCardData = wordData[i]
                   displayMatches(newCardData)
                 };
+      
             };
               function getMatch() {
               $.get("/api/aussi", function(data){
@@ -84,18 +102,26 @@ $(document).ready(function() {
                newRow += '<div class="card__content">';
                newRow += '<div class="card__title">' + x.word + '</div>';
                newRow += ' <div class="card__description">' + x.definition + '</div>';
-               newRow += '<button type="submit" value="Submit" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Discover More"><span>Discover More</span></button>';
+               newRow += '<button id="writeBtn" type="submit" value="Submit" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" attr=' + x.word.replace(/ +/g, "") + ' data-text="Discover More"><span>Discover More</span></button>';
                newRow += '</div>';
                newRow += '</div>';
 
             //   const newRow = $('<div>').addClass("row")
               // const h1 = $('<h4>').text(wordMatch).addClass("row")
               // const p = $('<p>').text(definition)
+              
               $("#matches").append(newRow)
+
+            
             //   $(newRow).append(h1)
             //   $(newRow).append(p)
             }
+           
+          
           });
+          
+
+      })
         
         //   const header = document.querySelector('.header');
         //   const headerContent = header.querySelector('.header-content');

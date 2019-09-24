@@ -161,4 +161,24 @@ module.exports = function (app) {
             });
     });
 
+     // POST route for saving a new post
+  app.post("/api/posts", function(req, res) {
+    db.Post.create(req.body).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
+    // GET route for getting all of the posts
+  app.get("/api/posts", function(req, res) {
+    var query = {};
+    if (req.query.author_id) {
+      query.AuthorId = req.query.author_id;
+    }
+    db.Post.findAll({
+      where: query
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
+  });
+
 };
