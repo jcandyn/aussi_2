@@ -7,10 +7,10 @@ $(document).ready(function() {
    
            
       thisWord = $(this).attr("attr")
-      alert(thisWord)
+
       
-      window.location.href = "/discussion"
-      console.log(thisWord)
+      window.location.href = '/discussion?use_id=' + thisWord.match(/[A-Z][a-z]+/g)
+ 
     })
   
   

@@ -1,6 +1,26 @@
 $(document).ready(function() {
-  
-alert(thisWord)
+  var urlParam = function(name, w){
+    w = w || window;
+    var rx = new RegExp('[\&|\?]'+name+'=([^\&\#]+)'),
+        val = w.location.search.match(rx);
+    return !val ? '':val[1];
+}
+
+var useId = urlParam('use_id');
+console.log(useId)
+
+
+useId = useId.split("%")[0]
+useId = useId.replace(/,/g, ' ')
+
+
+
+
+
+  $("#postWord").text(useId)
+
+
+
 
   // Getting jQuery references to the post body, title, form, and author select
   var bodyInput = $("#body");
