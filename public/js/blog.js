@@ -66,44 +66,65 @@ $(document).ready(function() {
   // This function constructs a post's HTML
   function createNewRow(post) {
     var formattedDate = new Date(post.createdAt);
-    formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-    var newPostCard = $("<div>");
-    newPostCard.addClass("card");
-    var newPostCardHeading = $("<div>");
-    newPostCardHeading.addClass("card-header");
-    var deleteBtn = $("<button>");
-    deleteBtn.text("x");
-    deleteBtn.addClass("delete btn btn-danger");
-    var editBtn = $("<button>");
-    editBtn.text("EDIT");
-    editBtn.addClass("edit btn btn-info");
-    var newPostTitle = $("<h2>");
-    var newPostDate = $("<small>");
-    var newPostAuthor = $("<h5>");
-    newPostAuthor.text("Written by: Author name display is in next activity when we learn joins!");
-    newPostAuthor.css({
-      float: "right",
-      color: "blue",
-      "margin-top":
-      "-10px"
-    });
-    var newPostCardBody = $("<div>");
-    newPostCardBody.addClass("card-body");
-    var newPostBody = $("<p>");
-    newPostTitle.text(post.title + " ");
-    newPostBody.text(post.body);
-    newPostDate.text(formattedDate);
-    newPostTitle.append(newPostDate);
-    newPostCardHeading.append(deleteBtn);
-    newPostCardHeading.append(editBtn);
-    newPostCardHeading.append(newPostTitle);
-    newPostCardHeading.append(newPostAuthor);
-    newPostCardBody.append(newPostBody);
-    newPostCard.append(newPostCardHeading);
-    newPostCard.append(newPostCardBody);
-    newPostCard.data("post", post);
-    return newPostCard;
+    console.log(formattedDate)
+    var newRow = '<div class="post-wrapper__post">';
+    newRow += '<img src="https://placeimg.com/350/240/any">';
+    newRow += '<div class="post-wrapper__post__date">';
+    newRow += '<span>01 Agust 2018</span></div>';
+    newRow += '<div class="post-wrapper__post__category">';
+    newRow += '<span>' + post.title + '</span>';
+    newRow += '</div>';
+    newRow += '<h3>' + post.body + '</h3>';
+    newRow += '<b>view more →</b>';
+    newRow += '</div>'
+
+    $(".post-wrapper").append(newRow)
   }
+
+    
+    
+    // var formattedDate = new Date(post.createdAt);
+    // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+    // var newPostCard = $("<div>");
+    // newPostCard.addClass("card");
+    // var newPostCardHeading = $("<div>");
+    // newPostCardHeading.addClass("card-header");
+    // var deleteBtn = $("<button>");
+    // deleteBtn.text("x");
+    // deleteBtn.addClass("delete btn btn-danger");
+    // var editBtn = $("<button>");
+    // editBtn.text("EDIT");
+    // editBtn.addClass("edit btn btn-info");
+    // var newPostTitle = $("<h2>");
+    // var newPostDate = $("<small>");
+    // var newPostAuthor = $("<h5>");
+    // newPostAuthor.text("Written by: Author name display is in next activity when we learn joins!");
+    // newPostAuthor.css({
+    //   float: "right",
+    //   color: "blue",
+    //   "margin-top":
+    //   "-10px"
+    // });
+    // var newPostCardBody = $("<div>");
+    // newPostCardBody.addClass("card-body");
+    // var newPostBody = $("<p>");
+    // newPostTitle.text(post.title + " ");
+    // newPostBody.text(post.body);
+    // newPostDate.text(formattedDate);
+    // newPostTitle.append(newPostDate);
+    // newPostCardHeading.append(deleteBtn);
+    // newPostCardHeading.append(editBtn);
+    // newPostCardHeading.append(newPostTitle);
+    // newPostCardHeading.append(newPostAuthor);
+    // newPostCardBody.append(newPostBody);
+    // newPostCard.append(newPostCardHeading);
+    // newPostCard.append(newPostCardBody);
+    // newPostCard.data("post", post);
+    // return newPostCard;
+
+
+    
+  
 
   // This function figures out which post we want to delete and then calls deletePost
   function handlePostDelete() {
