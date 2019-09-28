@@ -14,7 +14,7 @@ useId = useId.split("%")[0]
 useId = useId.replace(/,/g, ' ')
 
 
-
+var updating = false;
 
 
   $("#postWord").text(useId)
@@ -27,6 +27,11 @@ useId = useId.replace(/,/g, ' ')
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var categorySelect = $("#post-category");
+
+  $.get("/api/user_data").then(function(data) {
+
+    console.log(data)
+userId = data.id;
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", handleFormSubmit);
 
@@ -35,7 +40,7 @@ useId = useId.replace(/,/g, ' ')
   var postId;
   var authorId;
   // Sets a flag for whether or not we're updating a post to be false initially
-  var updating = false;
+ 
 
   // If we have this section in our url, we pull out the post id from the url
   // In '?post_id=1', postId is 1
@@ -48,10 +53,7 @@ useId = useId.replace(/,/g, ' ')
     authorId = url.split("=")[1];
   }
 
-  $.get("/api/user_data").then(function(data) {
 
-    
-userId = data.user_identifier;
 
     // membersData = data
 
@@ -91,10 +93,15 @@ userId = data.user_identifier;
 
   // Submits a new post and brings user to blog page upon completion
   function submitPost(post) {
+    if (post.word) {
     $.post("/api/posts", post, function() {
       console.log(post)
       window.location.href = "/blog";
     });
+  }
+  else {
+  alert('please choose a word to write about.')
+  }
   }
 
   // Gets post data for the current post if we're editing, or if we're adding to an author's existing posts

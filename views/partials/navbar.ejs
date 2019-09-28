@@ -1,5 +1,8 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="css/navbar.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+  <!-- <link rel="stylesheet" type="text/css" href="css/navbar.css"> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -7,7 +10,36 @@
 
 </head>
 <header>
-    <a class="sr-visible sr-focusable" href="#maincontent">Skip to content</a>
+    <nav class="navbar navbar-right navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Aussi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/words">Words <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/blog">Blog</a>
+              </li>
+              <li id="accountLink" class="nav-item">
+                <a class="nav-link" href="/account">My Account</a>
+              </li>
+            <li id="signUpLink" class="nav-item">
+              <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+            <li id="loginLink" class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+                <li id="logOutLink" class="nav-item">
+                    <a class="nav-link" href="/logout">Log Out</a>
+                  </li>
+          </ul>
+        </div>
+      </nav>
+    <!-- <a class="sr-visible sr-focusable" href="#maincontent">Skip to content</a>
 <nav role="navigation" id="js-nav">
   <ul class="navbar container">
     <li class="navbar__title"><a href="/">Aussi</a></li>
@@ -15,10 +47,10 @@
       <button aria-label="Open Menu" id="js-navbar-btn"> <span class="sr-visible">MENU</span><span class="icon-open" aria-hidden="true">&#9776;</span><span class="icon-close" aria-hidden="true">&#10005;</span></button>
     </li>
     <li class="navbar__menu" role="menu" id="js-links">
-      <ul class="navbar__menu__links" id="js-menu">
+      <ul class="navbar__menu__links" id="js-menu"> -->
         <!-- <li role="none"><a href="#" role="menuitem">Words</a></li> -->
-        <li role="none"><a href="/discussion" role="menuitem">Discussion</a></li>
-        <li role="none"><a href="/words" role="menuitem">Words</a></li>
+      
+        <!-- <li role="none"><a href="/words" role="menuitem">Words</a></li>
         <li role="none" id="signUpLink"><a href="/signup" role="menuitem">Sign Up</a></li>
         <li role="none" id="loginLink"><a href="/login" role="menuitem">Login</a></li>
         <li role="none"><a href="/contact" role="menuitem">Contact</a></li>
@@ -29,7 +61,7 @@
       </ul>
     </li>
   </ul>
-</nav>
+</nav> -->
 
 <script src="js/members.js"></script>
 

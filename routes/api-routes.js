@@ -81,7 +81,6 @@ module.exports = function (app) {
     )
 
     app.post("/api/aussi", function (req,res) {
-        console.log("wreck that body",req.body.emotion)
         if (req.body.emotion) 
         db.Word.findAll({
             where: {
@@ -112,8 +111,8 @@ module.exports = function (app) {
         });
     });
 
-    app.get("/api/events/:userId", function (req, res) {
-        db.Event.findAll({
+    app.get("/api/posts/:userId", function (req, res) {
+        db.Post.findAll({
             where: {
                 userId: req.params.userId
             },
@@ -175,10 +174,47 @@ module.exports = function (app) {
       query.AuthorId = req.query.author_id;
     }
     db.Post.findAll({
-      where: query
+      where: query,
+      include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
     });
   });
 
 };
+
+// app.get("/api/events", function (req, res) {
+//     var query = {};
+
+//     if (req.query.user_id) {
+//         req.query.UserId = req.query.user_id;
+//     };
+
+//     db.Event.findAll({
+//         where: query,
+//         include: [db.User]
+//     }).then(function (dbEvent) {
+//         res.json(dbEvent);
+//     });
+// });
+
+// app.get("/api/events/:userId", function (req, res) {
+//     db.Event.findAll({
+//         where: {
+//             userId: req.params.userId
+//         },
+//         include: [db.User]
+//     }).then(function (dbEvent) {
+//         res.json(dbEvent);
+//     });
+// });
+
+// app.get("/api/events/:category", function (req, res) {
+//     db.Event.findAll({
+//         where: {
+//             category: req.params.category
+//         }
+//     }).then(function (dbEvent) {
+//         res.json(dbEvent);
+//     });
+// });

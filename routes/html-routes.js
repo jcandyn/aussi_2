@@ -42,11 +42,15 @@ module.exports = function(app) {
           res.render(path.join(__dirname, "../views/pages/signup.ejs"));
         });
 
+        app.get("/account", function(req, res) {
+          res.render(path.join(__dirname, "../views/pages/members.ejs"));
+        });
+
         app.get("/chat", function(req, res) {
           res.render(path.join(__dirname, "../views/pages/chat.ejs"));
         });
 
-        app.get("/discussion", function(req, res) {
+        app.get("/discussion", isAuthenticated, function(req, res) {
           res.render(path.join(__dirname, "../views/pages/discussion.ejs"));
         });
 

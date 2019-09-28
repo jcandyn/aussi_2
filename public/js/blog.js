@@ -65,16 +65,17 @@ $(document).ready(function() {
 
   // This function constructs a post's HTML
   function createNewRow(post) {
+    
+    console.log(post)
     var formattedDate = new Date(post.createdAt);
-    console.log(formattedDate)
     var newRow = '<div class="post-wrapper__post">';
     newRow += '<img src="https://placeimg.com/350/240/any">';
     newRow += '<div class="post-wrapper__post__date">';
     newRow += '<span>01 Agust 2018</span></div>';
     newRow += '<div class="post-wrapper__post__category">';
-    newRow += '<span>' + post.title + '</span>';
+    newRow += '<span>' + post.User.username + '</span>';
     newRow += '</div>';
-    newRow += '<h3>' + post.body + '</h3>';
+    newRow += '<h3>' + post.title + '</h3>';
     newRow += '<b>view more →</b>';
     newRow += '</div>'
 

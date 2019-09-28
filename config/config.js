@@ -1,4 +1,4 @@
-
+module.exports = 
 
 {
   "development": {
@@ -10,10 +10,10 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "fjh76psj2utz5gly",
-    "password": "hdlazib3jofa2u8w",
-    "database": "k3pxvgg0fd5a142p",
-    "host": "s9xpbd61ok2i7drv.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "username": "f1u2joh9cplot7jh",
+    "password": "yrcokmrcpq2trml9",
+    "database": "iudzmc43bfr7ut00",
+    "host": "xq7t6tasopo9xxbs.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },

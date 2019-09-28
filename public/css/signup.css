@@ -118,32 +118,31 @@
   }
 /*  */
 
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(-45deg, #00AF93, rgb(91, 193, 169), rgb(100, 181, 143), rgb(145, 205, 107));
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-  }
-  
-  @keyframes gradientBG {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
-  .container {
-    width: 100%;
-    position: absolute;
-    top: 35%;
-    text-align: center;
-  }
 
-  
+body {
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(-45deg, #00AF93, rgb(91, 193, 169), rgb(100, 181, 143), rgb(145, 205, 107));
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  width: 100%;
+  position: absolute;
+  top: 80%;
+  text-align: center;
+}
