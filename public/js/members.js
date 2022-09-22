@@ -88,7 +88,7 @@ $(document).ready(function () {
       newRow += '<span>' + x.User.username + '</span>';
       newRow += '</div>';
       newRow += '<h3>' + x.title + '</h3>';
-      newRow += '<b>view more →</b>';
+      newRow += '<a href="/cms?post_id=' + x.id + '" id="view-more"><b>view more →</b></a>';
       newRow += '</div>'
   
       $("#myPosts").append(newRow)

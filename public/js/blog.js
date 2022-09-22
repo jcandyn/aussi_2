@@ -76,7 +76,7 @@ $(document).ready(function() {
     newRow += '<span>' + post.User.username + '</span>';
     newRow += '</div>';
     newRow += '<h3>' + post.title + '</h3>';
-    newRow += '<b>view more →</b>';
+    newRow += '<a href="/cms?post_id=' + post.id + '" id="view-more"><b>view more →</b></a>';
     newRow += '</div>'
 
     $(".post-wrapper").append(newRow)
