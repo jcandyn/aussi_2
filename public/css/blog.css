@@ -50,7 +50,7 @@ body {
     transition: .5s;
     cursor: pointer;
   }
-  .post-wrapper__post__date, .post-wrapper__post__category {
+  .post-wrapper__post__date, .post-wrapper__post__category, .post-wrapper__post__, .post-wrapper__post__word {
     padding: 20px;
     position: absolute;
     top: 0;
@@ -60,6 +60,13 @@ body {
   }
   .post-wrapper__post__category {
     right: 0;
+  }
+  .post-wrapper__post__word span {
+    padding: 1rem;
+    position: relative;
+    right: 0;
+    font-size: smaller;
+    top: 2rem !important;
   }
   .post-wrapper__post:hover {
     background: #0aca86;

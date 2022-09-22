@@ -75,8 +75,13 @@ $(document).ready(function() {
     newRow += '<div class="post-wrapper__post__category">';
     newRow += '<span>' + post.User.username + '</span>';
     newRow += '</div>';
+    newRow += '<div class="post-wrapper__post__word">';
+    newRow += '<span>Word : ' + post.word + "</span>";
+    newRow += '</div>';
     newRow += '<h3>' + post.title + '</h3>';
-    newRow += '<a href="/cms?post_id=' + post.id + '" id="view-more"><b>view more →</b></a>';
+    newRow += '<a href="/displayBlog" id="view-more"><b>view more →</b></a>';
+     
+    // newRow += '<a href="/cms?post_id=' + post.id + '" id="view-more"><b>view more →</b></a>';
     newRow += '</div>'
 
     $(".post-wrapper").append(newRow)

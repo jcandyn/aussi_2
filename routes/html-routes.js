@@ -69,6 +69,10 @@ module.exports = function(app) {
           res.render(path.join(__dirname, "../views/pages/blog.ejs"));
         });
 
+        app.get("/displayBlog", function(req, res) {
+          res.render(path.join(__dirname, "../views/pages/displayBlog.ejs"));
+        });
+
         // app.get("/index", isAuthenticated, function(req, res) {
         //   res.render(path.join(__dirname, "../views/pages/index.ejs"));
         // });
