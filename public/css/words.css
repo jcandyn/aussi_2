@@ -122,6 +122,14 @@
 	transform: translate3d(0, 100%, 0);
 }
 
+#alertBtn {
+	position: relative;
+	bottom:20rem !important;
 
+
+}
+.alertBtnDisappear {
+	display: none !important;
+}
 
 

@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
   let words;
       let thisWord;
@@ -55,9 +53,15 @@ $(document).ready(function() {
                 //   definition = (data.words[0].definition)
                   words = data.words
                   console.log(data)
+                
                 //   console.log(wordMatch)
                 //   console.log(definition)
+                if (words[0]) {
                 populateWords(words)
+                }
+                else {
+                  populateWarning();
+                }
              
                 //   displayMatches()
                   // If there's an error, log the error
@@ -66,7 +70,18 @@ $(document).ready(function() {
                 //   console.log(err);
                 });
               }
+              function populateWarning(){
+              // var buttonAlert = '<button id="alertBtn" class="btn-flat toast-action"></button>';
+              // $("#alertContainer").append(buttonAlert);
+              document.getElementById("alertBtn").classList.remove("alertBtnDisappear");
+              setTimeout(function() {document.getElementById('alertBtn').className='alertBtnDisappear btn btn-warning toast-action disabled';},3000);
+              
+              //  Materialize.toast('Sorry, no match! Try another word.', 4000) // 4000 is the duration of the toast
+              // var buttonAlert_id = document.getElementById('alertBtn');
+              
 
+                // Materialize.toast('Sorry, no match! Try another word.', 4000) // 4000 is the duration of the toast
+               }
               function populateWords(data) {
                 var wordData = data;
                 for (let i = 0; i < wordData.length; i++) {
@@ -92,11 +107,11 @@ $(document).ready(function() {
              
     
             function displayMatches(x) {
-                
+                console.log(x);
                 var newRow =  '<div class="card">';
                 newRow += '<div class="card__img">';
                 newRow += '<div class="ishadow">';
-               newRow += '<img data-blur="20" data-hover="true" src="https://images.unsplash.com/flagged/photo-1565635278159-ed40dc1cf362?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ">';
+               newRow += '<img data-blur="20" data-hover="true" src="' + x.ImageURL + '">';
                newRow += '</div>';
                newRow += '</div>';
                newRow += '<div class="card__content">';

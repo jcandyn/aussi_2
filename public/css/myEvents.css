@@ -107,11 +107,34 @@ body {
   
   .container {
     width: 100%;
-    position: absolute;
-    top: 80%;
+    /* position: absolute; */
+    top: 60%;
     text-align: center;
   }
 
   #welcome {
       margin: 20px;
   }
+
+ #noPosts {
+bottom: 20% !important;
+height: auto !important;
+ }
+
+ button {
+   height: 20%;
+ }
+
+ .jumbotron .display-4 {
+  font-weight: 400 !important;
+  font-family: system-ui;
+  color: rgb(91, 193, 169);
+  text-align: center !important;
+  background-color: white !important;
+ }
+ .jumbotron  { 
+   font-size: 80% !important;
+ font-family: system-ui;
+ text-align: center !important;
+ background-color: white !important;
+}

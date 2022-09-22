@@ -20,7 +20,7 @@
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Tell us how you feel</label>
-            <input type="text" class="form-control col-md-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex. I am sad because..."/>
+            <input type="text" class="form-control col-md-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ex. happy, sad, eat, laugh..."/>
             <small id="emailHelp" class="form-text text-muted">We'll never share your information with anyone else.</small>
           
            <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
@@ -29,6 +29,9 @@
         </form>
         </div>
         <div id="matches" class="container card-group"></div>
+        <div id="alertContainer" class="container">
+          <button id="alertBtn" class="alertBtnDisappear btn btn-warning toast-action disablec">Sorry, no match! Try another word.</button>
+        </div>
         <script src="js/words.js"></script>
         <script src="js/discussion.js"></script>
        

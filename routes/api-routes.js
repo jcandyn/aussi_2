@@ -28,7 +28,9 @@ module.exports = function (app) {
             user_bio: req.body.user_bio,
             email: req.body.email,
             password: req.body.password,
-            user_identifier: req.body.user_identifier
+            user_identifier: req.body.user_identifier,
+            createdAt: new Date(),
+            updatedAt: new Date()
 
         }).then(function () {
             res.redirect(307, "/api/login");

@@ -1,71 +1,4 @@
-
-
-
-//   let userId;
-//     // This file just does a GET request to figure out which user is logged in
-//     // and updates the HTML on the page
-//     $.get("/api/user_data").then(function(data) {
-//       // console.log(data)
-//       if(Object.keys(data).length > 0){
-//         $("#loginLink").remove()
-//         $("#signUpLink").remove()
-//       }
-//       else if (!Object.keys(data).length > 0) {
-//         // $("#createEventLink").remove()
-//         $("#accountLink").remove()
-//         $("#logOutLink").remove()
-//       }
-//       $(".member-name").text(data.name);
-
-// userId = data.id
-// console.log(userId)
-//       // membersData = data
-
-//     });
-
-//     var posts;
-
-//     var url = window.location.search;
-//   // var authorId;
-//   // if (url.indexOf("?author_id=") !== -1) {
-//   //   authorId = url.split("=")[1];
-//   //   getPosts(authorId);
-//   // }
-//   // If there's no authorId we just get all posts as usual
-//   // else {
-//     getPosts();
-//   // }
-
-
-//     function getPosts() {
-//       // authorId = author || "";
-//       // if (username) {
-//       //   username = "/:" + username;
-//       // }
-
-//       $.get("/api/posts/" + userId, function(data) {
-//         console.log("Posts", data);
-//         posts = data;
-//         if (!posts || !posts.length) {
-//           // displayEmpty(author);
-//           console.log("this author does not have any posts yet")
-//         }
-//         else {
-//           initializeRows();
-//         }
-//       });
-//     }
-//   // InitializeRows handles appending all of our constructed post HTML inside blogContainer
-//   function initializeRows() {
-//     // blogContainer.empty();
-//     var postsToAdd = [];
-//     for (var i = 0; i < posts.length; i++) {
-//       postsToAdd.push(createNewRow(posts[i]));
-//     }
-//     blogContainer.append(postsToAdd);
-//   }
-
-  $(document).ready(function () {
+$(document).ready(function () {
 
     
     $.get("/api/user_data").then(function(data) {
@@ -119,11 +52,20 @@
         };
         yourEvents.empty();
         var messageH2 = $("<h2>");
-        messageH2.css({ "text-align": "center", "margin-top": "50px" });
-        messageH2.html("You haven't created any events yet!" + partial + ", navigate <a href='/create" + query +
-
-            "'>here</a> in order to get started.");
-        yourEvents.append(messageH2);
+        // messageH2.css({ "text-align": "center", "margin-top": "50px" });
+        // messageH2.html("You haven't created any posts yet!" + partial + ", navigate <a href='/words" + query +
+            // "'>here</a> in order to get started.");
+            var accountMessage = '<div id="noPosts" class="card text-center">'
+            + '<div class="card-header">'
+             + 'Hi, ' + 
+           + '</div>'
+            + '<div class="card-body">'
+            +  '<h5 class="card-title">You have not created any posts yet!</h5>'
+             + ' <p class="card-text">Navigate to get started.</p>'
+              + '<a href="/words" + query class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Go search words">Go search words</a>'
+            + '</div>'
+          + '</div>';
+        yourEvents.append(accountMessage);
     };
 
     function populateYourEvents(data) {
@@ -149,7 +91,7 @@
       newRow += '<b>view more →</b>';
       newRow += '</div>'
   
-      $(".post-wrapper").append(newRow)
+      $("#myPosts").append(newRow)
     }
   
   
