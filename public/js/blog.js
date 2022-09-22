@@ -67,11 +67,11 @@ $(document).ready(function() {
   function createNewRow(post) {
     
     console.log(post)
-    var formattedDate = new Date(post.createdAt);
+    var formattedDate = new Date(post.createdAt).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
     var newRow = '<div class="post-wrapper__post">';
     newRow += '<img src="https://placeimg.com/350/240/any">';
     newRow += '<div class="post-wrapper__post__date">';
-    newRow += '<span>01 Agust 2018</span></div>';
+    newRow += '<span>' + formattedDate + '</span></div>';
     newRow += '<div class="post-wrapper__post__category">';
     newRow += '<span>' + post.User.username + '</span>';
     newRow += '</div>';
