@@ -125,16 +125,16 @@ height: auto !important;
    height: 20%;
  }
 
- .jumbotron .display-4 {
-  font-weight: 400 !important;
-  font-family: system-ui;
-  color: rgb(91, 193, 169);
-  text-align: center !important;
-  background-color: white !important;
- }
  .jumbotron  { 
-   font-size: 80% !important;
  font-family: system-ui;
  text-align: center !important;
  background-color: white !important;
+}
+
+.header-logo {
+  font-size: 4rem;
+  color:rgb(91, 193, 169);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
