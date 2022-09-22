@@ -124,6 +124,20 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/post/", function (req, res) {
+        console.log("hits call");
+        console.log("passed: " + req.query.post_id);
+            db.Post.findAll({
+            where: {
+                id: req.query.post_id
+            },
+            include: [db.User]
+        }).then(function (dbEvent) {
+            res.json(dbEvent);
+        });
+    });
+    
+
     app.get("/api/events/:category", function (req, res) {
         db.Event.findAll({
             where: {

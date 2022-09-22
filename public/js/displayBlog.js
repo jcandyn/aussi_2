@@ -11,31 +11,32 @@ $(document).ready(function() {
   // Variable to hold our posts
   var posts;
 
-  // The code below handles the case where we want to get blog posts for a specific author
-  // Looks for a query param in the url for author_id
+  // The code below handles the case where we want to get blog posts for a specific post
+  // Looks for a query param in the url for post_id
   var url = window.location.search;
-  var authorId;
-  if (url.indexOf("?author_id=") !== -1) {
-    authorId = url.split("=")[1];
-    getPosts(authorId);
+  var post_id;
+  if (url.indexOf("?post_id=") !== -1) {
+    post_id = url.split("=")[1];
+    getPosts(post_id);
   }
-  // If there's no authorId we just get all posts as usual
+  // If there's no post_id we just get all posts as usual
   else {
     getPosts();
   }
 
 
   // This function grabs posts from the database and updates the view
-  function getPosts(author) {
-    authorId = author || "";
-    if (authorId) {
-      authorId = "/?author_id=" + authorId;
+  function getPosts(post) {
+    post_id = post || "";
+    if (post_id) {
+      post_id = "/?post_id=" + post_id;
     }
-    $.get("/api/posts" + authorId, function(data) {
+    console.log(post_id);
+    $.get("/api/post" + post_id, function(data) {
       console.log("Posts", data);
       posts = data;
       if (!posts || !posts.length) {
-        displayEmpty(author);
+        displayEmpty(post);
       }
       else {
         initializeRows();
@@ -70,8 +71,8 @@ $(document).ready(function() {
     console.log(post)
     var formattedDate = new Date(post.createdAt).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
     var newRow = '<section class="post">'
-   + '<h3 class="description">- Long form typography exercise - </h3>'
-   + '<h1>Hipster Ipsum</h1>'
+   + '<h3 class="description">- ' + post.word + ' - </h3>'
+   + '<h1>' + post.title + '</h1>'
    + '<p>Dreamcatcher nesciunt pour-over, VHS Schlitz et hella occaecat Wes Anderson put a bird on it quinoa voluptate occupy jean shorts. Yr vegan readymade mlkshk, pour-over cornhole fap tempor Wes Anderson direct trade. Banjo bicycle rights Godard fingerstache, occupy deep v mollit tote bag raw denim ugh banh mi trust fund nisi Williamsburg.</p>'
     + '<p>Fingerstache forage semiotics messenger bag. Retro whatever cardigan stumptown, PBR banh mi mollit. Assumenda mumblecore placeat readymade enim irure. Bushwick ullamco gastropub pickled gluten-free, retro post-ironic kogi tousled shabby chic photo booth deep v jean shorts fap tattooed. Banksy cray Etsy voluptate, sunt pickled DIY irony. American apparel ethnic duis, thundercats locavore 8-bit trust fund shabby chic single-origin coffee freegan asymmetrical Truffaut Cosby sweater vinyl ut.'
    + '</p>'
@@ -124,7 +125,7 @@ $(document).ready(function() {
     var query = window.location.search;
     var partial = "";
     if (id) {
-      partial = " for Author #" + id;
+      partial = " for post #" + id;
     }
     blogContainer.empty();
     var messageH2 = $("<h2>");

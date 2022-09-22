@@ -92,7 +92,7 @@ $(document).ready(function () {
       newRow += '</div>';
       newRow += '<h3>' + x.title + '</h3>';
       // newRow += '<a href="/cms?post_id=' + x.id + '" id="view-more"><b>view more →</b></a>';
-      newRow += '<a href="/displayBlog" id="view-more"><b>view more →</b></a>';
+      newRow += '<a href="/displayBlog?post_id=' + x.id +'" id="view-more"><b>view more →</b></a>';
       newRow += '</div>'
       
   

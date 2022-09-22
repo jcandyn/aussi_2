@@ -22,6 +22,16 @@ router.get("/api/posts", function(req, res){
   })
 })
 
+router.get("/api/post", function(req, res){
+  post.selectAll(function(data) {
+    var hbsObject = {
+      posts: data
+    };
+    console.log(hbsObject);
+    res.json(hbsObject);
+  })
+})
+
 router.get("/aussi", function(req, res) {
     word.selectAll(function(data) {
       var hbsObject = {

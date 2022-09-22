@@ -79,7 +79,7 @@ $(document).ready(function() {
     newRow += '<span>Word : ' + post.word + "</span>";
     newRow += '</div>';
     newRow += '<h3>' + post.title + '</h3>';
-    newRow += '<a href="/displayBlog" id="view-more"><b>view more →</b></a>';
+    newRow += '<a href="/displayBlog?post_id=' + post.id +'" id="view-more"><b>view more →</b></a>';
      
     // newRow += '<a href="/cms?post_id=' + post.id + '" id="view-more"><b>view more →</b></a>';
     newRow += '</div>'
