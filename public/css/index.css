@@ -85,16 +85,7 @@ h1{margin:0px; padding:0px; font-family: 'Roboto', sans-serif;transition:all .5s
     margin-bottom: 20px;
   }
   .header-cta {
-    /* display: inline-block;
-    text-decoration: none;
-    height: 60px;
-    line-height: 60px;
-    min-width: 220px;
-    padding: 0 15px;
-    margin-top: 20px;
-    text-align: center;
-    font-size: 1.1em;
-/*  */
+   
 font-size: 0.8em;
 text-align: center;
 display: inline-block;
@@ -103,4 +94,10 @@ padding: 0 15px;
   }
 
  
- 
+  @media screen and (min-width: 480px) {
+  
+    form {
+      max-width: 480px;
+    }
+  
+  }
