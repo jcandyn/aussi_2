@@ -90,30 +90,45 @@ body {
     opacity: .1;
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 1320px) {
   
     .post-wrapper {
-      max-width: 100%;
+      width: 55%;
+      height: auto;
     }
 
     .post-wrapper__post {
-      min-width: 30%;
+      min-width: 10%;
+      width: 30%;
     }
   
   }
+
+  @media screen and (min-width: 900px) {
+  
+    .post-wrapper {
+      width: 100%;
+      height: auto;
+    }
+
+    .post-wrapper__post {
+      min-width: 10%;
+    }
+  
+  }
+
 
   @media screen and (max-width: 900px) {
   
     .post-wrapper {
-      max-width: 70%;
-      height: 30%;
+      width: 100%;
+      height: auto;
     }
 
     .post-wrapper__post {
-      min-width: 100%;
-      height: 50%;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto;
     }
-  
-  }
 
-  
+  }
