@@ -121,10 +121,6 @@ $(document).ready(function() {
                newRow += '</div>';
                newRow += '</div>';
 
-            //   const newRow = $('<div>').addClass("row")
-              // const h1 = $('<h4>').text(wordMatch).addClass("row")
-              // const p = $('<p>').text(definition)
-              
               $("#matches").append(newRow)
 
             

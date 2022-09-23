@@ -21,16 +21,7 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false
       }
     });
-  
-    // Post.associate = function(models) {
-   
-    //   Post.belongsTo(models.User, {
-    //     foreignKey: {
-    //       allowNull: false
-    //     }
-    //   });
-    // };
-
+    
     Post.associate = function (models) {
         Post.belongsTo(models.User);
       };

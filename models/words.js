@@ -1,6 +1,6 @@
 
 module.exports = function (sequelize, Datatypes) {
-  var Word = sequelize.define("Word", {
+  var Word = sequelize.define("Words", {
       id: {
           type: Datatypes.INTEGER,
           primaryKey: true,

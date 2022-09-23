@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-    
     $.get("/api/user_data").then(function(data) {
       // console.log(data)
       if(Object.keys(data).length > 0){
