@@ -90,7 +90,7 @@ body {
     opacity: .1;
   }
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 900px) {
   
     .post-wrapper {
       max-width: 50%;
@@ -102,5 +102,16 @@ body {
   
   }
 
+  @media screen and (min-width: 900px) {
+  
+    .post-wrapper {
+      max-width: 120%;
+    }
+
+    .post-wrapper__post {
+      min-width: 30%;
+    }
+  
+  }
 
   
