@@ -93,18 +93,18 @@ body {
   @media screen and (min-width: 1320px) {
   
     .post-wrapper {
-      width: 55%;
+      max-width: 70%;
       height: auto;
     }
 
     .post-wrapper__post {
       min-width: 10%;
-      width: 30%;
+      max-width: 40%;
     }
   
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 980px) {
   
     .post-wrapper {
       width: 100%;
@@ -118,10 +118,10 @@ body {
   }
 
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 980px) {
   
     .post-wrapper {
-      width: 100%;
+      width: 70%;
       height: auto;
     }
 
