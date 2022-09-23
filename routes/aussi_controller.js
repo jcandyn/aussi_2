@@ -7,11 +7,6 @@ var word = require('../models/words.js');
 var path = require("path");
 var post = require('../models/posts.js')
 
-
-
-// router.get("/test", function(req, res) {
-//   res.json("test");
-// });
 router.get("/api/posts", function(req, res){
   post.selectAll(function(data) {
     var hbsObject = {

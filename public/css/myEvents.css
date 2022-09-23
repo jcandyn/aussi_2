@@ -113,17 +113,9 @@ body {
   }
 
   #welcome {
-      margin: 20px;
+      margin: auto;
   }
 
- #noPosts {
-bottom: 20% !important;
-height: auto !important;
- }
-
- button {
-   height: 20%;
- }
 
  .jumbotron  { 
  font-family: system-ui;
@@ -137,4 +129,32 @@ height: auto !important;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 20px;
+}
+
+#myPosts {
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto !important;
+}
+
+#noPosts {
+  bottom: 20% !important;
+  height: 70%;
+  margin-left: auto;
+  margin-right: auto;
+   }
+
+#messageBtn {
+  height: 25% !important;
+  width: auto !important;
+  margin: auto;
+}
+
+#messageBtn {
+  margin: auto;
+}
+
+.button--rayen {
+  padding:0.5rem !important;
 }

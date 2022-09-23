@@ -57,12 +57,11 @@ $(document).ready(function () {
             // "'>here</a> in order to get started.");
             var accountMessage = '<div id="noPosts" class="card text-center">'
             + '<div class="card-header">'
-             + 'Hi, ' + 
            + '</div>'
-            + '<div class="card-body">'
+            + '<div id="messageCard" class="card-body">'
             +  '<h5 class="card-title">You have not created any posts yet!</h5>'
              + ' <p class="card-text">Navigate to get started.</p>'
-              + '<a href="/words" + query class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Go search words">Go search words</a>'
+              + '<a id="messageBtn" href="/words" + query class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" data-text="Go search words">Go search words</a>'
             + '</div>'
           + '</div>';
         yourEvents.append(accountMessage);
