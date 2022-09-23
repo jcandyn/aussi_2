@@ -83,14 +83,14 @@ height: 75%;
 width: auto;
   }
 
-  @media screen and (max-width: 980px) {
+  /* @media screen and (max-width: 980px) {
   
     .card {
       margin-top: 5rem;
       width: 100%;
       height: auto;
     }
-  }
+  } */
 
   @media screen and (min-width: 980px) {
   
