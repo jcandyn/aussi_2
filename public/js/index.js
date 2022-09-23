@@ -5,10 +5,6 @@ let emotion;
 let word;
 let definition;
 
-
-
-
-
     $("#searchEmotion").on("click", function() {
         event.preventDefault()
         emotion = $("input").val().trim()
