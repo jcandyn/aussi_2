@@ -84,7 +84,7 @@ module.exports = function (app) {
 
     app.post("/api/aussi", function (req,res) {
         if (req.body.emotion) 
-        db.Word.findAll({
+        db.Words.findAll({
             where: {
                 definition: {
                     [Op.like]: "%" + req.body.emotion +  "%"
