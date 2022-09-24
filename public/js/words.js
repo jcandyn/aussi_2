@@ -12,24 +12,8 @@ $(document).ready(function() {
     })
   
   
-      
-
-
-// $.get("/api/words", function (data) {
-//     console.log("okay")
-//     console.log("words", data);
-//      words = data;
-//   });
-
     let emotion;
     let definition;
-    
-    // request to get all words in database
-      // $.get("/api/words", function(data) {
-            //     console.log(data)
-            //     word = data
-            //     alert(word)
-            // })
     
     
         $("#searchEmotion").on("click", function() {
