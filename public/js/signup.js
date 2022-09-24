@@ -27,15 +27,27 @@ $(document).ready(function() {
             password: passwordSign_up,
             user_identifier: randomID
         }
-    
+       
+           
         if (!user_data.username || !user_data.password) {
             return;
           }
+          else if (user_data.password.length < 8) { 
+            populateWarningLess();
+            setTimeout(() => {
+              console.log("Delayed for 7 second.");
+            }, 7000)
+          }
+          else if (user_data.password.length > 32) { 
+            populateWarningMore();
+            setTimeout(() => {
+              console.log("Delayed for 7 second.");
+            }, 7000)
+          }
+          
+          
           // If we have an email and password, run the signUpUser function
           signUpUser(user_data.username, user_data.password,user_data.user_bio,user_data.user_identifier,user_data.name,user_data.email);
-        //   usernameSign_up.val("");
-        //   passwordSign_up.val("");
-        //   emailSign_up.val("");
           $("#nameSign_up").val("");
           $("#emailSign_up").val("");
           $("#passwordSign_up").val("");
@@ -44,7 +56,15 @@ $(document).ready(function() {
     
     });
     
-    
+    function populateWarningMore(){
+      document.getElementById("alertBtnMore").classList.remove("alertBtnDisappear");
+      setTimeout(function() {document.getElementById('alertBtnMore').className='alertBtnDisappear btn btn-warning toast-action disabled';},3000);
+       }
+
+       function populateWarningLess(){
+        document.getElementById("alertBtnLess").classList.remove("alertBtnDisappear");
+        setTimeout(function() {document.getElementById('alertBtnLess').className='alertBtnDisappear btn btn-warning toast-action disabled';},3000);
+         }
     // Does a post to the signup route. If succesful, we are redirected to the members page
     // Otherwise we log any errors
     function signUpUser(username,password,user_bio,user_identifier,name,email) {
@@ -57,12 +77,14 @@ $(document).ready(function() {
         email: email,
       }).then(function(data) {
           console.log(data)
-        window.location.replace(data);
+        // window.location.replace(data);
         // If there's an error, handle it by throwing up a boostrap alert
       }).catch(handleLoginErr);
     }
     
     function handleLoginErr(err) {
+      console.error(err.message);
+      res.status(500).send('Server error!');
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
     }

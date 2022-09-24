@@ -70,18 +70,12 @@ $(document).ready(function() {
                 //   console.log(err);
                 });
               }
+              
               function populateWarning(){
-              // var buttonAlert = '<button id="alertBtn" class="btn-flat toast-action"></button>';
-              // $("#alertContainer").append(buttonAlert);
               document.getElementById("alertBtn").classList.remove("alertBtnDisappear");
               setTimeout(function() {document.getElementById('alertBtn').className='alertBtnDisappear btn btn-warning toast-action disabled';},3000);
-              
-              //  Materialize.toast('Sorry, no match! Try another word.', 4000) // 4000 is the duration of the toast
-              // var buttonAlert_id = document.getElementById('alertBtn');
-              
-
-                // Materialize.toast('Sorry, no match! Try another word.', 4000) // 4000 is the duration of the toast
                }
+
               function populateWords(data) {
                 var wordData = data;
                 for (let i = 0; i < wordData.length; i++) {

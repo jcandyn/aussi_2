@@ -146,3 +146,12 @@ body {
   top: 80%;
   text-align: center;
 }
+
+#alertBtnMore, #alertBtnLess {
+	position: relative;
+	bottom:20rem !important;
+  max-width: 40%;
+}
+.alertBtnDisappear {
+	display: none !important;
+}

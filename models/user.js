@@ -45,10 +45,7 @@ module.exports = function (sequelize, Datatypes) {
             type: Datatypes.STRING,
             allowNull: false,
             validate: {
-                len: [8, 16],
-                notContains: [
-                    "fuck", "shit", "bitch", "ass", "phuk", "fuk", "sheit", "sheeeit", "shat", "schit", "shitt", "biiiiitch", "betch", "bich"
-                ],
+                len: [8, 32],
             }
         },
         user_identifier: {

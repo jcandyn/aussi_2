@@ -33,8 +33,12 @@
       
       <label for="password">Password (8 characters minimum):</label>
       <input type="password" id="passwordSign_up" name="passwordSign_up">
-      
+      <div id="alertContainer" class="container">
+        <button id="alertBtnMore" class="alertBtnDisappear btn btn-warning toast-action disablec">Sorry, your password is more than 8 characters.</button>
+        <button id="alertBtnLess" class="alertBtnDisappear btn btn-warning toast-action disablec">Sorry, your password is less than 32 characters.</button>
+      </div>
     </fieldset>
+    
     
     <fieldset>
       <legend><span class="number">2</span>Your profile</legend>
