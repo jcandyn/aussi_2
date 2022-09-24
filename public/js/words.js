@@ -6,8 +6,8 @@ $(document).ready(function() {
            
       thisWord = $(this).attr("attr")
 
-      console.log("this word: " + thisWord);
-      window.location.href = '/discussion?use_id=' + thisWord.match(/[A-Z][a-z]+/g)
+  
+      window.location.href = '/discussion?use_id=' + thisWord
  
     })
   
