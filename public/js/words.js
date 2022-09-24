@@ -37,7 +37,7 @@ $(document).ready(function() {
             $('#matches').empty()
           
             emotion = $("input").val().trim()
-            console.log(emotion)
+            // console.log(emotion)
             var user_emotion = {
                 emotion: emotion
             }
@@ -52,7 +52,7 @@ $(document).ready(function() {
                 //   wordMatch = (data.words[0].word)
                 //   definition = (data.words[0].definition)
                   words = data.words
-                  console.log(data)
+                  // console.log(data)
                 
                 //   console.log(wordMatch)
                 //   console.log(definition)
@@ -70,7 +70,7 @@ $(document).ready(function() {
                 //   console.log(err);
                 });
               }
-              
+
               function populateWarning(){
               document.getElementById("alertBtn").classList.remove("alertBtnDisappear");
               setTimeout(function() {document.getElementById('alertBtn').className='alertBtnDisappear btn btn-warning toast-action disabled';},3000);
@@ -86,9 +86,9 @@ $(document).ready(function() {
             };
               function getMatch() {
               $.get("/api/aussi", function(data){
-                console.log(data)
+                // console.log(data)
               }).then(function(data) {
-            console.log("actual match",data)
+            // console.log("actual match",data)
             //     definition = data.words[0].definition;
             //     word = data.words[0].word;
              }).catch(function (err) {
@@ -101,7 +101,6 @@ $(document).ready(function() {
              
     
             function displayMatches(x) {
-                console.log(x);
                 var newRow =  '<div class="card">';
                 newRow += '<div class="card__img">';
                 newRow += '<div class="ishadow">';
