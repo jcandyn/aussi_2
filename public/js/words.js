@@ -6,7 +6,7 @@ $(document).ready(function() {
            
       thisWord = $(this).attr("attr")
 
-      
+      console.log(thisWord);
       window.location.href = '/discussion?use_id=' + thisWord.match(/[A-Z][a-z]+/g)
  
     })
@@ -115,7 +115,7 @@ $(document).ready(function() {
                newRow += '</div>';
 
               $("#matches").append(newRow)
-
+ 
             
             //   $(newRow).append(h1)
             //   $(newRow).append(p)

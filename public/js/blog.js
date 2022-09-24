@@ -65,8 +65,6 @@ $(document).ready(function() {
 
   // This function constructs a post's HTML
   function createNewRow(post) {
-    
-    console.log(post)
     var formattedDate = new Date(post.createdAt).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
     var newRow = '<div class="post-wrapper__post">';
     newRow += '<img src="https://placeimg.com/350/240/any">';
