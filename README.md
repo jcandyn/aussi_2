@@ -4,7 +4,7 @@
 <p>This app was inspired by John Koenig, who came up with these great words to put a name to our not-so-uncommon feelings!</p>
 
 
-You can check out the app by clicking ->  <a href="https://theaussi.herokuapp.com/" target="_blank"> HERE ! </a>
+You can check out the app by clicking ->  <a href="https://theaussi.herokuapp.com/" > HERE ! </a>
 
 <p>The app is a work-in-progress. There are more features that will be added in the near future.</p>
 
@@ -22,5 +22,6 @@ You can check out the app by clicking ->  <a href="https://theaussi.herokuapp.co
   <li>JawsDB</li>
   <li>Authentication/Validation</li>
   <li>Password Hashing</li>
+  <li>Express.js</li>
   </ul>
 
