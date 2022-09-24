@@ -6,7 +6,7 @@ $(document).ready(function() {
            
       thisWord = $(this).attr("attr")
 
-      console.log(thisWord);
+      console.log("this word: " + thisWord);
       window.location.href = '/discussion?use_id=' + thisWord.match(/[A-Z][a-z]+/g)
  
     })
@@ -110,7 +110,7 @@ $(document).ready(function() {
                newRow += '<div class="card__content">';
                newRow += '<div class="card__title">' + x.word + '</div>';
                newRow += ' <div class="card__description">' + x.definition + '</div>';
-               newRow += '<button id="writeBtn" type="submit" value="Submit" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" attr=' + x.word + " data-text=Write bout' it!><span>Write bout' it!</span></button>";
+               newRow += '<button id="writeBtn" type="submit" value="Submit" class="button button--rayen button--border-thin button--text-thick button--text-upper button--size-s" attr=' + x.word.replace(/ +/g, "") + " data-text=Write bout' it!><span>Write bout' it!</span></button>";
                newRow += '</div>';
                newRow += '</div>';
 
