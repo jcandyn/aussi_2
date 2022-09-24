@@ -4,7 +4,7 @@
   }
   
   img {
-    max-width: 100%;
+    max-width: 50%;
   }
   
   .card {
@@ -31,7 +31,7 @@
   .card__img {
     -webkit-transform: translateY(-2em);
             transform: translateY(-2em);
-            height: 40%;
+            /* height: 40%; */
   }
   .card__title {
     line-height: 1.2;
@@ -93,9 +93,12 @@ width: auto;
   } */
 
   @media screen and (min-width: 980px) {
-  
+    img {
+      max-width: 100%;
+    }
+
     .card {
-      max-width: 25% !important;
+      max-width: 55% !important;
       height: auto !important;
       margin: 3rem;
       background: white;
