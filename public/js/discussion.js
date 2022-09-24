@@ -7,7 +7,7 @@ $(document).ready(function() {
 }
 let userId;
 var useId = urlParam('use_id');
-console.log(useId)
+
 
 
 useId = useId.split("%")[0]
@@ -30,7 +30,6 @@ var updating = false;
 
   $.get("/api/user_data").then(function(data) {
 
-    console.log(data)
 userId = data.id;
   // Adding an event listener for when the form is submitted
   $(cmsForm).on("submit", handleFormSubmit);
