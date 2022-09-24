@@ -12,7 +12,7 @@ You can check out the app by clicking ->  <a href="https://theaussi.herokuapp.co
 <ul>
   <li>MySQL</li>
   <li>Javascript</li>
-  <li>NodeJs</li>
+  <li>Node.js</li>
   <li>Passport.js</li>
   <li>Bootstrap</li>
   <li>Sequelize</li>
