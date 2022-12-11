@@ -21,7 +21,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "ejs": "^2.7.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.16.2",
     "materialize-css": "^1.0.0-rc.2",
     "mysql2": "^1.7.0",
